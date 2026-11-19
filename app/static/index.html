@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stem Mixer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="icon.png">
+</head>
+<body>
+  <header>
+    <h1>Stem Mixer</h1>
+    <label class="btn primary">
+      Open song…
+      <input id="file" type="file" accept="audio/*,.mp3,.wav,.flac,.m4a,.aac,.ogg,.opus,.aiff,.wma" hidden>
+    </label>
+  </header>
+
+  <main>
+    <section id="drop" class="card drop">
+      <p class="big">Drop an audio file here</p>
+      <p class="muted">MP3, WAV, FLAC, M4A, OGG… It will be split into drums, bass, vocals, guitar, keys and other.
+        Each song is processed once and saved to your library.</p>
+    </section>
+
+    <section id="job" class="card" hidden>
+      <div class="row between"><strong id="job-title"></strong><span id="job-pct" class="muted"></span></div>
+      <div class="bar"><div id="job-bar"></div></div>
+      <p id="job-msg" class="muted"></p>
+    </section>
+
+    <section id="mixer" class="card" hidden>
+      <div class="row between wrap">
+        <h2 id="song-title"></h2>
+        <div class="row gap">
+          <span class="muted">Master</span>
+          <input id="master" type="range" min="0" max="100" value="90" aria-label="Master volume">
+        </div>
+      </div>
+
+      <div class="transport row gap wrap">
+        <button id="play" class="btn primary round" title="Play / pause (Space)">▶</button>
+        <span id="time" class="mono">0:00 / 0:00</span>
+        <div class="row gap speed" title="Playback speed. Pitch stays the same. Keys: [ and ]">
+          <span class="muted">Speed</span>
+          <input id="speed" type="range" min="50" max="150" step="5" value="100" aria-label="Playback speed">
+          <button id="speed-val" class="btn tiny mono" title="Reset to 100%">100%</button>
+        </div>
+        <span class="spacer"></span>
+        <button id="loop-a" class="btn" title="Set loop start at playhead (A)">Loop A</button>
+        <button id="loop-b" class="btn" title="Set loop end at playhead (B)">Loop B</button>
+        <button id="loop-clear" class="btn" title="Clear loop (L)" disabled>Clear loop</button>
+        <button id="reset" class="btn" title="All stems to 100%, no mute/solo">Reset mix</button>
+      </div>
+
+      <div id="stems"></div>
+      <p class="muted small">Click a waveform to jump; drag across it to loop that section.
+        Keys: <kbd>Space</kbd> play · <kbd>←</kbd>/<kbd>→</kbd> 5 s · <kbd>1</kbd>–<kbd>6</kbd> mute ·
+        <kbd>Shift</kbd>+<kbd>1</kbd>–<kbd>6</kbd> solo · <kbd>A</kbd>/<kbd>B</kbd>/<kbd>L</kbd> loop · <kbd>[</kbd>/<kbd>]</kbd> speed.
+        Double-click a slider to reset it.</p>
+    </section>
+
+    <section id="library-card" class="card" hidden>
+      <h2>Library</h2>
+      <ul id="library"></ul>
+    </section>
+  </main>
+
+  <template id="stem-row">
+    <div class="stem">
+      <div class="stem-head">
+        <span class="dot"></span>
+        <span class="name"></span>
+        <button class="btn tiny mute" title="Mute">M</button>
+        <button class="btn tiny solo" title="Solo">S</button>
+      </div>
+      <div class="wave"><canvas></canvas></div>
+      <div class="stem-vol">
+        <input type="range" min="0" max="100" value="100">
+        <span class="db mono">0 dB</span>
+      </div>
+    </div>
+  </template>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

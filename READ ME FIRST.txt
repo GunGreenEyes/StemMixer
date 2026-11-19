@@ -1,0 +1,56 @@
+STEM MIXER
+==========
+
+Split any song into Vocals, Drums, Bass, Guitar, Keys and Other, then turn each
+part up or down, mute it, solo it, loop sections and slow it down (without
+changing the pitch) so you can learn to play and sing it.
+
+
+HOW TO START
+------------
+1. Double-click "Start Stem Mixer".
+
+   The first time, Windows may show a blue box saying "Windows protected your PC".
+   Click "More info", then "Run anyway". (This appears for any program you
+   download that isn't from the Microsoft Store.)
+
+2. The first time only, it sets itself up. This takes about 5-15 minutes and
+   needs an internet connection. Just leave the black window open until your
+   web browser opens.
+
+3. After that it starts in a few seconds. You can also use the "Stem Mixer"
+   shortcut it puts on your desktop.
+
+Keep the black window open while you practice. Close it to quit.
+(The black window will say "Stem Mixer is running".)
+
+
+USING IT
+--------
+- Drag a song (MP3, WAV, FLAC, M4A, ...) onto the page, or click "Open song...".
+- The first time you open a song, it is separated into parts. This takes about as
+  long as the song itself (much faster with an NVIDIA graphics card). After that
+  it is saved and opens instantly from the Library list.
+- Each part has a volume slider, M (mute) and S (solo).
+- Speed slider: 50% to 150%, and the pitch stays the same.
+- Drag across any waveform to loop that section.
+- Keys: Space = play/pause, Left/Right = jump 5 s, 1-6 = mute a part,
+  Shift+1-6 = solo, [ and ] = slower/faster.
+
+
+WHERE THINGS ARE STORED
+-----------------------
+- Your separated songs:  Music\Stem Mixer   (delete a folder there to remove a song)
+- The program's engine:  %LOCALAPPDATA%\StemMixer   (about 1-3 GB)
+
+To uninstall: delete this folder, the desktop shortcut, and the two folders above.
+Nothing else is installed on your computer, and no administrator rights are needed.
+
+
+IF SOMETHING GOES WRONG
+-----------------------
+- If setup stops with an error, check your internet connection and double-click
+  "Start Stem Mixer" again. It continues where it left off.
+- If it still fails, delete the folder %LOCALAPPDATA%\StemMixer and try once more.
+  (Paste %LOCALAPPDATA% into the File Explorer address bar to find it.)
+- Requires 64-bit Windows 10 or 11.
